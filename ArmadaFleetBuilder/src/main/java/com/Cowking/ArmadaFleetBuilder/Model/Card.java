@@ -77,16 +77,16 @@ public class Card {
 
     private String imageURL;
 
-    private boolean isCommander;
+    private boolean commander;
 
-    public Card(String name, Integer pointCost, Slot slot, String requiredShip, Faction faction, String imageURL, boolean isCommander, boolean unique) {
+    public Card(String name, Integer pointCost, Slot slot, String requiredShip, Faction faction, String imageURL, boolean commander, boolean unique) {
         this.name = name;
         this.pointCost = pointCost;
         this.slot = slot;
         this.requiredShip = requiredShip;
         this.faction = faction;
         this.imageURL = imageURL;
-        this.isCommander = isCommander;
+        this.commander = commander;
         this.unique = unique;
     }
 

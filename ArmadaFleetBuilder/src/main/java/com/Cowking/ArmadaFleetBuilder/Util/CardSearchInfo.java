@@ -24,12 +24,12 @@ public class CardSearchInfo {
         this.requiredShip = requiredShip;
     }
 
-    public boolean isCommander() {
-        return isCommander;
+    public boolean commander() {
+        return commander;
     }
 
     public void setCommander(boolean commander) {
-        isCommander = commander;
+        commander = commander;
     }
 
     public boolean unique() {
@@ -46,7 +46,7 @@ public class CardSearchInfo {
 
     private String requiredShip;
 
-    private boolean isCommander;
+    private boolean commander;
 
     private boolean unique;
 

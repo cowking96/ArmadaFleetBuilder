@@ -23,8 +23,8 @@ public class CardServiceImpl implements CardService {
 
     }
 
-    private Iterable<Card> find(String name, Integer pointCost, Slot slot, Faction faction, boolean isCommander, boolean unique, String requiredShip){
-        Predicate predicate = (Predicate) cardPredicateBuilder.buildPredicate(pointCost,slot,requiredShip,faction,isCommander,unique);
+    private Iterable<Card> find(String name, Integer pointCost, Slot slot, Faction faction, boolean commander, boolean unique, String requiredShip){
+        Predicate predicate = (Predicate) cardPredicateBuilder.buildPredicate(pointCost,slot,requiredShip,faction,commander,unique);
         return  null;
 
     }

@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class CardPredicateBuilder {
 
-   public Predicate buildPredicate(Integer pointCost, Slot slot, String requiredShip, Faction faction, boolean isCommander, boolean unique) {
+   public Predicate buildPredicate(Integer pointCost, Slot slot, String requiredShip, Faction faction, boolean commander, boolean unique) {
 
         BooleanBuilder builder = new BooleanBuilder();
 
@@ -43,7 +43,7 @@ public class CardPredicateBuilder {
         }
 
 
-        builder = builder.and(QCard.card.isCommander.eq(isCommander));
+        builder = builder.and(QCard.card.commander.eq(commander));
 
         builder = builder.and(QCard.card.unique.eq(unique));
 

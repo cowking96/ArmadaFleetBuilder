@@ -15,14 +15,21 @@ public class CardPredicateBuilderTest {
     public void ShouldBuildPredicateForGivenPointCost(){
         CardPredicateBuilder cardPredicateBuilder = new CardPredicateBuilder();
         Predicate predicate = cardPredicateBuilder.buildPredicate(100,null,null,null,FALSE,FALSE);
-        assertThat(predicate.toString()).isEqualTo("card.pointCost <= 100 && card.isCommander = false && card.unique = false");
+        assertThat(predicate.toString()).isEqualTo("card.pointCost <= 100 && card.commander = false && card.unique = false");
     }
 
     @Test
-    public void ShouldBuildPredicateForunique(){
+    public void ShouldBuildPredicateForUnique(){
         CardPredicateBuilder cardPredicateBuilder = new CardPredicateBuilder();
         Predicate predicate = cardPredicateBuilder.buildPredicate(null,null,null,null,TRUE,FALSE);
-        assertThat(predicate.toString()).isEqualTo("card.isCommander = true && card.unique = false");
+        assertThat(predicate.toString()).isEqualTo("card.commander = true && card.unique = false");
+    }
+
+    @Test
+    public void ShouldBuildPredicateForCommander(){
+        CardPredicateBuilder cardPredicateBuilder = new CardPredicateBuilder();
+        Predicate predicate = cardPredicateBuilder.buildPredicate(null,null,null,null,FALSE,TRUE);
+        assertThat(predicate.toString()).isEqualTo("card.commander = false && card.unique = true");
     }
 
 
@@ -31,20 +38,27 @@ public class CardPredicateBuilderTest {
     public void ShouldBuildPredicateForGivenSlot(){
         CardPredicateBuilder cardPredicateBuilder = new CardPredicateBuilder();
         Predicate predicate = cardPredicateBuilder.buildPredicate(null, Slot.TURBOLASER,null,null,FALSE,FALSE);
-        assertThat(predicate.toString()).isEqualTo("card.slot = TURBOLASER && card.isCommander = false && card.unique = false");
+        assertThat(predicate.toString()).isEqualTo("card.slot = TURBOLASER && card.commander = false && card.unique = false");
     }
 
     @Test
     public void ShouldBuildPredicateForRequiredShip(){
         CardPredicateBuilder cardPredicateBuilder = new CardPredicateBuilder();
         Predicate predicate = cardPredicateBuilder.buildPredicate(null,null,"Victory",null,FALSE,FALSE);
-        assertThat(predicate.toString()).isEqualTo("card.requiredShip = Victory && card.isCommander = false && card.unique = false");
+        assertThat(predicate.toString()).isEqualTo("card.requiredShip = Victory && card.commander = false && card.unique = false");
     }
 
     @Test
     public void ShouldBuildPredicateForGivenFaction(){
         CardPredicateBuilder cardPredicateBuilder = new CardPredicateBuilder();
         Predicate predicate = cardPredicateBuilder.buildPredicate(null,null,null,EMPIRE,FALSE,FALSE);
-        assertThat(predicate.toString()).isEqualTo("card.faction in [EMPIRE, NEUTRAL] && card.isCommander = false && card.unique = false");
+        assertThat(predicate.toString()).isEqualTo("card.faction in [EMPIRE, NEUTRAL] && card.commander = false && card.unique = false");
+    }
+
+    @Test
+    public void ShouldBuildNullPredicate(){
+        CardPredicateBuilder cardPredicateBuilder = new CardPredicateBuilder();
+        Predicate predicate = cardPredicateBuilder.buildPredicate(null, null,null,null,FALSE,FALSE);
+        assertThat(predicate.toString()).isEqualTo("card.commander = false && card.unique = false");
     }
 }
