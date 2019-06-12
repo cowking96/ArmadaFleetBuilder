@@ -1,10 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Armada Fleet Builder</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/armada.css">
 </head>
+
 <body>
-This is the index page
+
+<div id = "page">
+<div class = "banner header" id = "banner-header">
+    this is the header banner
+</div>
+    <div class = "col-left border">
+
+        <div class = "border">
+            this will be the search panel
+            <div class = "radiobuttons">this is where the radio buttons will go
+                <div id = "firstradiobutton" class = "shiftright firstradiobutton">this is the first radio button</div>
+                <div id = "secondradiobutton" class = "shiftright secondradiobutton">this is the second radio button</div>
+            </div>
+            <div class = "searchbutton">
+                this will be the search button
+                <button mat-button>Search</button>
+
+            </div>
+
+            <div class = "advancedsearch">
+                <button mat-button>Advanced</button>
+            </div>
+
+        </div>
+
+        <div class = "border">
+            this is where the results of the search will be displayed
+        </div>
+
+    </div>
+
+    <div class="col-right border">
+
+        <div class="border fleetsummary">
+            this is where the fleet will be summarized
+        </div>
+
+        <div class="border fleetdisplay">
+            this is where the fleet will be displayed
+        </div>
+
+    </div>
+
+    <div class = "banner footer" id = "banner-footer">
+        this is the footer banner
+    </div>
+
+</div>
+
 </body>
 </html>

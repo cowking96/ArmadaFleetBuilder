@@ -1,0 +1,79 @@
+body {
+    background-color: yellow;
+    position:relative;
+    padding-bottom:100%;
+}
+
+
+.col-left {
+    float:left;
+    width:48%;
+    background-color: red;
+    margin-top:2%;
+    margin-right:2%;
+}
+
+.col-right {
+    float:right;
+    width:48%;
+    background-color: blue;
+    margin-top:2%;
+    margin-left:2%
+}
+
+.border {
+}
+
+.banner{
+width:100%;
+background-color:green;
+}
+
+.radiobuttons{
+background-color:white;
+width:100;
+}
+.footer{
+position:absolute;
+bottom:0;
+background-color:gray;
+}
+
+.fleetsummary{
+background-color:purple;
+}
+
+.shiftright{
+margin-left:2%;
+}
+
+.firstradiobutton{
+background-color:teal;
+}
+
+secondradiobutton{
+background-color:coral;
+}
+
+.searchbutton{
+    width:50%;
+    background-color:lime;
+    margin-right:0%;
+    float:left;
+}
+
+.advancedsearch{
+background-color:navy;
+width:50%;
+float:right;
+margin-top:0px;
+width:48%;
+margin-left:0%;
+position:relative;
+}
+
+.fleetdisplay{
+margin-top:5%;
+}
+
+
