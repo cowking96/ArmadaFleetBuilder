@@ -4,8 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Armada Fleet Builder</title>
+
+    <link rel = "stylesheet" href = "js/jquery/jquery-ui.theme.css">
+    <link rel="stylesheet" href="js/jquery/jquery-ui.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/armada.css">
+
+    <script src="js/FleetBuilderPage.js"></script>
+    <script src="js/jquery/external/jquery/jquery.js"></script>
+    <script src="js/jquery/jquery-ui.min.js"></script>
+
+
 </head>
 
 <body>
@@ -18,18 +27,20 @@
 
         <div class = "border">
             this will be the search panel
-            <div class = "radiobuttons">this is where the radio buttons will go
-                <div id = "firstradiobutton" class = "shiftright firstradiobutton">this is the first radio button</div>
-                <div id = "secondradiobutton" class = "shiftright secondradiobutton">this is the second radio button</div>
+            <div class = "radioButtons">this is where the radio buttons will go
+                <label for = "search-units">Units</label>
+                <input type = "radio" value="Units" id = "search-units" name="searchType" >
+                <label for = "search-cards">Cards</label>
+                <input type = "radio" value = "Cards" id = "search-cards" name = "searchType" class = "cardsRadio">
+
             </div>
-            <div class = "searchbutton">
-                this will be the search button
-                <button mat-button>Search</button>
+            <div  id = "searchButtonDiv">
+                <input type = "button" value="Search" class = "searchButton">
 
             </div>
 
-            <div class = "advancedsearch">
-                <button mat-button>Advanced</button>
+            <div class = "advancedSearchDiv">
+                <input type = "button" value = "Advanced" class = "advancedSearchButton">
             </div>
 
         </div>
@@ -46,8 +57,13 @@
             this is where the fleet will be summarized
         </div>
 
-        <div class="border fleetdisplay">
+        <div class="border fleetdisplay fleetAccordion">
             this is where the fleet will be displayed
+            <h3>header1</h3>
+            <div>content1</div>
+            <h3>header2</h3>
+            <div>content2</div>
+
         </div>
 
     </div>
@@ -58,5 +74,23 @@
 
 </div>
 
+
+<script>
+
+$(document).ready( function() {
+
+    var rawURL = location.href;
+
+    var generatedURL = rawURL.substring(0, rawURL.length-1);
+
+    console.log(generatedURL);
+
+    FleetBuilderPage.startup(generatedURL);
+});
+
+</script>
+
 </body>
+
+
 </html>

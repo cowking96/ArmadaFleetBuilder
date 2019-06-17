@@ -47,24 +47,15 @@ background-color:purple;
 margin-left:2%;
 }
 
-.firstradiobutton{
-background-color:teal;
-}
-
-secondradiobutton{
-background-color:coral;
-}
-
-.searchbutton{
+.searchButtonDiv{
     width:50%;
     background-color:lime;
     margin-right:0%;
     float:left;
 }
 
-.advancedsearch{
+.advancedSearchDiv{
 background-color:navy;
-width:50%;
 float:right;
 margin-top:0px;
 width:48%;
