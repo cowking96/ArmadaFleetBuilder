@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <title>Armada Fleet Builder</title>
 
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel = "stylesheet" href = "js/jquery/jquery-ui.theme.css">
     <link rel="stylesheet" href="js/jquery/jquery-ui.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/armada.css">
 
     <script src="js/FleetBuilderPage.js"></script>
@@ -20,33 +20,47 @@
 <body>
 
 <div id = "page">
-<div class = "banner header" id = "banner-header">
+<div id = "banner-header" class = "banner header" >
     this is the header banner
 </div>
     <div class = "col-left border">
 
-        <div class = "border">
-            this will be the search panel
-            <div class = "radioButtons">this is where the radio buttons will go
-                <label for = "search-units">Units</label>
-                <input type = "radio" value="Units" id = "search-units" name="searchType" >
-                <label for = "search-cards">Cards</label>
-                <input type = "radio" value = "Cards" id = "search-cards" name = "searchType" class = "cardsRadio">
-
+        <div id = "searchPanel" class = "border" >
+            <div>
+                <label for = "radioSearchUnits" >Units</label>
+                <input type = "radio" value="Units" id = "radioSearchUnits" name="searchType" checked="true">
+                <label for = "radioSearchCards" >Cards</label>
+                <input type = "radio" value = "Cards" id = "radioSearchCards" name = "searchType" class = "cardsRadio">
+                <input type = "button" value="Search"  id = "searchButton">
+                <input type = "button" value = "Advanced" id = "advancedSearchButton">
             </div>
-            <div  id = "searchButtonDiv">
-                <input type = "button" value="Search" class = "searchButton">
+        </div>
 
-            </div>
+        <div id = "searchResultsPanel" class = "border searchresults" >
+            placeholder text
+        </div>
 
-            <div class = "advancedSearchDiv">
-                <input type = "button" value = "Advanced" class = "advancedSearchButton">
-            </div>
+        <div id = "advancedSearchFormUnits" class = "no-close" title="Advanced Search" hidden>
+            this will be the advanced search form for units
+            <label for = "includeNeutralsCheckboxUnits">Include neutral cards</label>
+            <input id = "includeNeutralsCheckboxUnits"  type = "checkbox" value = "includeNeutrals" checked = "true">
+            <label for ="maximumPointCostUnits" >Maximum Point Cost</label>
+            <input id = "maximumPointCostUnits" type = "text" >
+            <input type = "button" value="Search"  id = "searchButtonAdvancedUnits">
+            <input type = "button" value="Close"  id = "closeButtonAdvancedUnits">
+            <label for ="unitName" >Unit name</label>
+            <input id = "unitName" type = "text" >
 
         </div>
 
-        <div class = "border">
-            this is where the results of the search will be displayed
+        <div id = "advancedSearchFormCards" class = "no-close " title="Advanced Search" hidden>
+            this will be the advanced search form for cards
+            <label for = "includeNeutralsCheckboxCards">Include neutral cards</label>
+            <input id = "includeNeutralsCheckboxCards" type = "checkbox" value = "includeNeutrals" checked = "true">
+            <label for ="maximumPointCostCards">Maximum Point Cost</label>
+            <input id = "maximumPointCostCards" type = text>
+            <input type = "button" value="Search"  id = "searchButtonAdvancedCards">
+            <input type = "button" value="Close"  id = "closeButtonAdvancedCards">
         </div>
 
     </div>
@@ -57,7 +71,7 @@
             this is where the fleet will be summarized
         </div>
 
-        <div class="border fleetdisplay fleetAccordion">
+        <div id = "fleetAccordion" class="border fleetdisplay">
             this is where the fleet will be displayed
             <h3>header1</h3>
             <div>content1</div>
@@ -66,9 +80,11 @@
 
         </div>
 
+
+
     </div>
 
-    <div class = "banner footer" id = "banner-footer">
+    <div id = "banner-footer" class = "banner footer" >
         this is the footer banner
     </div>
 
@@ -89,6 +105,7 @@ $(document).ready( function() {
 });
 
 </script>
+
 
 </body>
 
