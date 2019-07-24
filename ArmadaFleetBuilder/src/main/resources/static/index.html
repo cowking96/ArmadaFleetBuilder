@@ -40,27 +40,146 @@
             placeholder text
         </div>
 
-        <div id = "advancedSearchFormUnits" class = "no-close" title="Advanced Search" hidden>
+        <div id = "advancedSearchFormUnits" class = "no-close advancedSearchForm" title="Advanced Search" hidden>
             this will be the advanced search form for units
-            <label for = "includeNeutralsCheckboxUnits">Include neutral cards</label>
-            <input id = "includeNeutralsCheckboxUnits"  type = "checkbox" value = "includeNeutrals" checked = "true">
-            <label for ="maximumPointCostUnits" >Maximum Point Cost</label>
-            <input id = "maximumPointCostUnits" type = "text" >
-            <input type = "button" value="Search"  id = "searchButtonAdvancedUnits">
-            <input type = "button" value="Close"  id = "closeButtonAdvancedUnits">
-            <label for ="unitName" >Unit name</label>
-            <input id = "unitName" type = "text" >
+            <div class = "searchFromUnitItem">
+                <label for = "includeNeutralsCheckboxUnits">Include neutral cards</label>
+                <input id = "includeNeutralsCheckboxUnits"  type = "checkbox" value = "includeNeutrals" checked = "true" class = "checkbox">
+            </div>
 
+            <div class = "searchFromUnitItem">
+                <label for ="maximumPointCostUnits" >Maximum Point Cost</label>
+                <input id = "maximumPointCostUnits" type = "text">
+            </div>
+            <div class = "searchFromUnitItem">
+                <label for ="unitName" >Unit name</label>
+                <input id = "unitName" type = "text" >
+            </div>
+            <div class="includeDiv" >
+                <div class = "searchFromUnitItem">
+                    <label for = "unitNameBegins" >Name starts with</label>
+                    <input type = "radio" value = "Starts with" id = "unitNameBegins" name = "UnitName" checked class = "checkbox">
+                </div >
+                <div class = "searchFromUnitItem">
+                    <label for = "unitNameEnds" >Name ends with</label>
+                    <input type = "radio" value = "Ends with" id = "unitNameEnds" name = "UnitName" class = "checkbox">
+                </div>
+                <div class = "searchFromUnitItem">
+                    <label for = "unitNameContains" >Name contains</label>
+                    <input type = "radio" value = "Starts with" id = "unitNameContains" name = "UnitName" class = "checkbox">
+                </div>
+            </div>
+            <div class = "includeDiv">
+                <div class = "searchFromUnitItem">
+                    <label for = "includeShips" >Search for ships</label>
+                    <input type = "radio" value = "Search for ships" id = "includeShips" name = "search type">
+                </div>
+                <div class = "searchFromUnitItem">
+                    <label for = "includeSquadrons" >Search for squadrons</label>
+                    <input type = "radio" value = "Search for squadrons" id = "includeSquadrons" name = "search type">
+                </div>
+
+                <div class = "searchFromUnitItem">
+                    <label for = "includeShipsAndSquadrons" >Search for both</label>
+                    <input type = "radio" value = "Search for both" id = "includeShipsAndSquadrons" name = "search type">
+                </div>
+                <div class = "searchFromUnitItem">
+                    <input type = "button" value="Search"  id = "searchButtonAdvancedUnits">
+                    <input type = "button" value="Close"  id = "closeButtonAdvancedUnits">
+                </div>
+            </div>
         </div>
 
         <div id = "advancedSearchFormCards" class = "no-close " title="Advanced Search" hidden>
             this will be the advanced search form for cards
-            <label for = "includeNeutralsCheckboxCards">Include neutral cards</label>
-            <input id = "includeNeutralsCheckboxCards" type = "checkbox" value = "includeNeutrals" checked = "true">
-            <label for ="maximumPointCostCards">Maximum Point Cost</label>
-            <input id = "maximumPointCostCards" type = text>
-            <input type = "button" value="Search"  id = "searchButtonAdvancedCards">
-            <input type = "button" value="Close"  id = "closeButtonAdvancedCards">
+            <div id = "neutralCheckboxDiv" class = "searchFromCardItem">
+                <label for = "includeNeutralsCheckboxCards">Include neutral cards</label>
+                <input id = "includeNeutralsCheckboxCards" type = "checkbox" value = "includeNeutrals" checked = "true"  class = "advancedSearchFormItem includeCheckbox">
+            </div>
+            <div id = "maximumPointCostDiv" class = "searchFromCardItem">
+                <label for ="maximumPointCostCards">Maximum Point Cost</label>
+                <input id = "maximumPointCostCards" type = text class = "advancedSearchFormItem">
+            </div>
+            <div id = "cardNameDiv" class = "advancedSearchSection">
+                <div class = "searchFromCardItem ">
+                    <label for ="cardName" >Card name</label>
+                    <input id = "cardName" type = "text" class = "advancedSearchFormItem" >
+                </div>
+                <div class = "searchFromCardItem ">
+                    <label for = "cardNameBegins" >Name starts with</label>
+                    <input type = "radio" value = "Starts with" id = "cardNameBegins" name = "CardName" class = "advancedSearchFormItem" checked = "true">
+                </div>
+                <div class = "searchFromCardItem ">
+                    <label for = "cardNameEnds" >Name ends with</label>
+                    <input type = "radio" value = "Ends with" id = "cardNameEnds" name = "CardName" class = "advancedSearchFormItem">
+                </div>
+                <div class = "searchFromCardItem ">
+                    <label for = "cardNameContains" >Name contains</label>
+                    <input type = "radio" value = "Starts with" id = "cardNameContains" name = "CardName" class = "advancedSearchFormItem">
+                </div>
+
+            </div>
+
+            Include:
+            <div id = "includeDiv" class = "advancedSearchSection">
+                <div id = "AdvancedCardSearchLeftColumn" class = "col-left">
+                    <div class = "searchFromCardItem ">
+                        <label for = "includeCommanders">Commanders</label>
+                        <input id = "includeCommanders"  type = "checkbox" value = "includeCommanders" checked = "true" class = "includeCheckbox">
+                    </div>
+                    <div class = "searchFromCardItem ">
+                        <label for = "includeUniques">Uniques</label>
+                        <input id = "includeUniques"  type = "checkbox" value = "includeUniques" checked = "true" class = "includeCheckbox">
+                    </div>
+                    <div class = "searchFromCardItem ">
+                        <label for = "includeModifications">Modifications</label>
+                        <input id = "includeModifications"  type = "checkbox" value = "includeModifications" checked = "true" class = "includeCheckbox">
+                    </div>
+                    <div class = "searchFromCardItem ">
+                        <label for = "includeDefenseRetrofit">Defense Retrofit</label>
+                        <input id = "includeDefenseRetrofit"  type = "checkbox" value = "includeDefenseRetrofit" checked = "true" class = "includeCheckbox">
+                    </div>
+                    <div class = "searchFromCardItem ">
+                        <label for = "includeOffensiveRetrofit">Offensive Retrofit</label>
+                        <input id = "includeOffensiveRetrofit"  type = "checkbox" value = "includeOffensiveRetrofit" checked = "true" class = "includeCheckbox">
+                    </div>
+                    <div class = "searchFromCardItem ">
+                        <label for = "includeTurboLaser">Turbo Laser</label>
+                        <input id = "includeTurboLaser"  type = "checkbox" value = "includeTurboLaser" checked = "true" class = "includeCheckbox">
+                    </div>
+                </div>
+
+                <div id = "AdvancedCardSearchRightColumn" class = "col-right">
+                    <div class = "searchFromCardItem ">
+                        <label for = "includeIonCannon">Ion cannon</label>
+                        <input id = "includeIonCannon"  type = "checkbox" value = "includeIonCannon" checked = "true" class = "includeCheckbox">
+                    </div>
+                    <div class = "searchFromCardItem ">
+                        <label for = "includeOrdnance">Ordnance</label>
+                        <input id = "includeOrdnance"  type = "checkbox" value = "includeOrdnance" checked = "true" class = "includeCheckbox">
+                    </div>
+                    <div class = "searchFromCardItem ">
+                        <label for = "includeTitle">Title</label>
+                        <input id = "includeTitle"  type = "checkbox" value = "includeTitle" checked = "true" class = "includeCheckbox">
+                    </div>
+                    <div class = "searchFromCardItem ">
+                        <label for = "includeOfficer">Officers</label>
+                        <input id = "includeOfficer"  type = "checkbox" value = "includeOfficer" checked = "true" class = "includeCheckbox">
+                    </div>
+                    <div class = "searchFromCardItem ">
+                        <label for = "includeWeaponsTeam">Weapons Team</label>
+                        <input id = "includeWeaponsTeam"  type = "checkbox" value = "includeWeaponsTeam" checked = "true" class = "includeCheckbox">
+                    </div>
+                    <div class = "searchFromCardItem ">
+                        <label for = "includeSupportTeam">Support Team</label>
+                        <input id = "includeSupportTeam"  type = "checkbox" value = "includeSupportTeam" checked = "true" class = "includeCheckbox">
+                    </div>
+                </div>
+            </div>
+            <div id = "SearchCloseDiv" class = "searchFromCardItem">
+                <input type = "button" value="Search"  id = "searchButtonAdvancedCards">
+                <input type = "button" value="Close"  id = "closeButtonAdvancedCards">
+            </div>
         </div>
 
     </div>

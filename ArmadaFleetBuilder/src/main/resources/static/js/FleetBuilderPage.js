@@ -8,23 +8,51 @@ FleetBuilderPage = {
         $( "#searchButton" ).button();
         $( "#advancedSearchButton" ).button();
         $( "#closeButton" ).button();
+
         $( "#radioSearchUnits" ).checkboxradio();
         $( "#radioSearchCards" ).checkboxradio();
-        $( "#fleetAccordion" ).accordion();
+
+        $( "#unitNameBegins" ).checkboxradio();
+        $( "#unitNameEnds" ).checkboxradio();
+        $( "#unitNameContains" ).checkboxradio();
+
+        $( "#cardNameBegins" ).checkboxradio();
+        $( "#cardNameEnds" ).checkboxradio();
+        $( "#cardNameContains" ).checkboxradio();
+
+        $( "#includeShips").checkboxradio();
+        $( "#includeSquadrons").checkboxradio();
+        $( "#includeShipsAndSquadrons").checkboxradio();
+
         $( "#includeNeutralsCheckboxUnits" ).checkboxradio();
         $( "#includeNeutralsCheckboxCards" ).checkboxradio();
+
+        $( "#includeCommanders").checkboxradio();
+        $( "#includeUniques").checkboxradio();
+        $( "#includeModifications").checkboxradio();
+        $( "#includeDefenseRetrofit").checkboxradio();
+        $( "#includeOffensiveRetrofit").checkboxradio();
+        $( "#includeTurboLaser").checkboxradio();
+        $( "#includeIonCannon").checkboxradio();
+        $( "#includeOrdnance").checkboxradio();
+        $( "#includeTitle").checkboxradio();
+        $( "#includeOfficer").checkboxradio();
+        $( "#includeWeaponsTeam").checkboxradio();
+        $( "#includeSupportTeam").checkboxradio();
+
+        $( "#fleetAccordion" ).accordion();
+
         $( "#searchButtonAdvancedUnits" ).button();
         $( "#searchButtonAdvancedCards" ).button();
         $( "#closeButtonAdvancedUnits" ).button();
         $( "#closeButtonAdvancedCards" ).button();
 
 
-
-
         //binds
-        this.bindSearchSubmit();
+        this.bindMonsterSearchSubmit();
         this.bindAdvancedSearch();
         this.bindCloseButton();
+        this.bindSearchSubmit();
 
     },
 
@@ -83,25 +111,73 @@ FleetBuilderPage = {
         else{
             $("#advancedSearchFormCards").dialog("close");
         }
-        
+
         $( "#radioSearchUnits" ).checkboxradio("enable");
         $( "#radioSearchCards" ).checkboxradio("enable");
 
-    },
+   },
 
     onAdvancedSearch: function(){
         $( "#radioSearchUnits" ).checkboxradio("disable");
         $( "#radioSearchCards" ).checkboxradio("disable");
         var unitRadioChecked = $("#radioSearchUnits").is(":checked");
             if(unitRadioChecked){
-                $("#advancedSearchFormUnits").dialog({dialogClass:"no-close"});
-
+                $("#advancedSearchFormUnits").dialog({dialogClass:"no-close advancedSearchForm",
+                resizable:"false"},"modal" );
 
             }
             else{
-                $("#advancedSearchFormCards").dialog({dialogClass:"no-close"});
+                $("#advancedSearchFormCards").dialog({dialogClass:"no-close advancedSearchForm", resizable:"false"},"modal" );
             }
 
     },
+
+    bindMonsterSearchSubmit: function() {
+
+            $("#searchButton").click(function() {
+                FleetBuilderPage.onSubmit();
+            });
+
+        },
+
+    getName: function() {
+        var nameToSearch;
+        var nameSearchType;
+
+        if(unitRadioChecked){
+            nameToSearch = $('unitName').value;
+            if($('unitNameBegins').is(':checked')){
+                nameSearchType = "name begins with"
+            }
+
+            else if($('unitNameEnds').is(':checked')){
+                nameSearchType = "name ends with"
+            }
+
+            else if($('unitNameContains').is(':checked')){
+                nameSearchType = "name contains"
+            }
+        }
+
+        if(cardRadioChecked){
+            nameToSearch = $('cardName').value;
+            if($('cardNameBegins').is(':checked')){
+                nameSearchType = "name begins with"
+            }
+
+            else if($('cardNameEnds').is(':checked')){
+                nameSearchType = "name ends with"
+            }
+
+            else if($('cardNameContains').is(':checked')){
+                nameSearchType = "name contains"
+            }
+        }
+
+        return nameSearchType;
+     },
+
+
+
 }
 

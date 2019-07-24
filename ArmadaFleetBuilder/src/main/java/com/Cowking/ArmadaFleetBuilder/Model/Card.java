@@ -79,7 +79,7 @@ public class Card {
 
     private boolean commander;
 
-    public Card(String name, Integer pointCost, Slot slot, String requiredShip, Faction faction, String imageURL, boolean commander, boolean unique) {
+    public Card(String name, Integer pointCost, Slot slot, String requiredShip, Faction faction, String imageURL, boolean commander, boolean unique, boolean modification) {
         this.name = name;
         this.pointCost = pointCost;
         this.slot = slot;
@@ -88,11 +88,36 @@ public class Card {
         this.imageURL = imageURL;
         this.commander = commander;
         this.unique = unique;
+        this.modification = modification;
     }
 
     private boolean unique;
 
+    private boolean modification;
 
+    public boolean isCommander() {
+        return commander;
+    }
+
+    public void setCommander(boolean commander) {
+        this.commander = commander;
+    }
+
+    public boolean isUnique() {
+        return unique;
+    }
+
+    public void setUnique(boolean unique) {
+        this.unique = unique;
+    }
+
+    public boolean isModification() {
+        return modification;
+    }
+
+    public void setModification(boolean modification) {
+        this.modification = modification;
+    }
 
     public Card(){
     }

@@ -86,11 +86,56 @@ global elements
 .footer {
     position:absolute;
     bottom:0;
-    background-color:gray;
+     background-color:gray;
 }
 
 body {
     background-color: yellow;
     position:relative;
     padding-bottom:100%;
+}
+
+
+.advancedSearchForm{
+    background-color:green;
+}
+
+#SearchCloseDiv{
+    margin-top:20px;
+    float:left;
+}
+
+.includeCheckbox{
+    height:10px;
+    width:20px;
+    margin-top:5%;
+    margin-bottom:5%;
+}
+
+.advancedSearchForm{
+    margin-top:5%;
+    margin-bottom:5%;
+}
+
+.includeDiv{
+    background-color:yellow;
+    margin-top:5%;
+    margin-bottom:5%;
+}
+
+.searchFromUnitItem{
+    margin-top:5%;
+    margin-bottom:5%;
+    background-color:red;
+}
+
+.searchFromCardItem{
+    margin-top:5%;
+    margin-bottom:5%;
+    background-color:yellow;
+}
+
+.checkbox{
+    height:50px;
+    width:50px;
 }
