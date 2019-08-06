@@ -1,7 +1,7 @@
 
 FleetBuilderPage = {
     startup: function(generatedURL) {
-
+        var baseUrl = "";
         this.baseUrl = generatedURL;
 
         //init widgets
@@ -225,24 +225,54 @@ FleetBuilderPage = {
         return includeList;
     },
 
-    onSearch: function(){
+    getSearchType: function(){
+        var searchType;
         var unitRadioChecked = $("#radioSearchUnits").is(":checked");
+        if(unitRadioChecked){
+          searchType = "units";
+          return searchType;
+        }
+
+        else {
+            searchType = "cards";
+            return searchType;
+        }
+
+
+    },
+
+    onSearch: function(){
         var nameSearchType;
         var nameToSearch;
         var maxPointCost;
         var includeNeutrals;
         var includeList;
+        var searchType;
+        var unitRadioChecked = $("#radioSearchUnits").is(":checked");
+        var baseUrl = "http://www.localhost:8080";
+        searchType = FleetBuilderPage.getSearchType();
         nameSearchType = FleetBuilderPage.getNameSearchType();
         nameToSearch = FleetBuilderPage.getNameToSearch();
         maxPointCost = FleetBuilderPage.getMaxPointCost();
         includeNeutrals = FleetBuilderPage.getIncludeNeutrals();
         includeList = FleetBuilderPage.getIncludeTypes();
+        var toSend = {searchType:searchType,nameSearchType:nameSearchType,nameToSearch:nameToSearch,maxPointCost:maxPointCost,includeNeutrals:includeNeutrals,includeList:includeList};
+        console.log(toSend);
+        console.log('is PlainObject: ' + $.isPlainObject(toSend));
         if(unitRadioChecked){
             console.log("searched for units " + "name search type: " + nameSearchType + " name searched: " + nameToSearch + "max point cost: " + maxPointCost + "include neutrals: " + includeNeutrals + "included: " + includeList);
+            $.post(baseUrl + "/units",toSend,function(data, status, jqXHR) {
+            console.log("search results data passed to: " + this.baseUrl + "/units");
+
+            });
         }
+
 
         else{
             console.log("searched for cards " + "name search type: " + nameSearchType + " name searched: " + nameToSearch + "max point cost: " + maxPointCost +  "include neutrals: "+ includeNeutrals + "included" + includeList);
+             $.post(this.baseUrl + "/cards",toSend,function(data, status, jqXHR) {
+                console.log("search results data passed to: " + this.baseUrl + "/cards");
+            });
         }
     },
 

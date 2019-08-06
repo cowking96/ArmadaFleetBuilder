@@ -5,4 +5,5 @@ import com.Cowking.ArmadaFleetBuilder.Util.UnitSearchInfo;
 
 public interface UnitService {
     public Iterable<Unit> findUnits(UnitSearchInfo unitSearchInfo);
+
 }
